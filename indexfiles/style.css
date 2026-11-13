@@ -12,6 +12,15 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    a:link, a:visited {
+        color: var(--colorForeground);
+        text-decoration: none;
+        font-weight: 900;
+    }
+    a:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }
 button {
     background-color: transparent;
@@ -43,4 +52,9 @@ input:hover, input:focus {
 h1 {
     width: 100%;
     text-align: center;
+}
+.subtitle {
+    width: 100%;
+    text-align: right;
+    margin-top: 0;
 }
