@@ -1,1 +1,9 @@
 @charset "UTF-8";
+:root {
+    --colorBackground: #0c111d;
+    --colorForeground: #4289e5;
+}
+body {
+    background-color: var(--colorBackground);
+    color: var(--colorForeground);
+}
