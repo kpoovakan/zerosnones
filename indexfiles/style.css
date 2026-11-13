@@ -7,3 +7,28 @@ body {
     background-color: var(--colorBackground);
     color: var(--colorForeground);
 }
+button {
+    background-color: transparent;
+    color: var(--colorForeground);
+    border: 3px solid var(--colorForeground);
+    border-radius: 3px;
+    padding: 13px;
+}
+button:hover, button:focus {
+    border-style: dashed;
+}
+button:hover {
+    cursor: pointer;
+}
+input {
+    background-color: transparent;
+    color: var(--colorForeground);
+    outline: none;
+    border: 3px solid var(--colorForeground);
+    border-radius: 3px;
+    padding: 13px;
+}
+input:hover, input:focus {
+    border-style: dashed;
+    outline: none;
+}
