@@ -40,3 +40,7 @@ input:hover, input:focus {
     border-style: dashed;
     outline: none;
 }
+h1 {
+    width: 100%;
+    text-align: center;
+}
