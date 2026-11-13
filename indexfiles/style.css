@@ -2,10 +2,12 @@
 :root {
     --colorBackground: #0c111d;
     --colorForeground: #4289e5;
+    --font: "Kode Mono", monospace;
 }
 body {
     background-color: var(--colorBackground);
     color: var(--colorForeground);
+    font-family: var(--font);
 }
 button {
     background-color: transparent;
@@ -13,6 +15,7 @@ button {
     border: 3px solid var(--colorForeground);
     border-radius: 3px;
     padding: 13px;
+    font-family: var(--font);
 }
 button:hover, button:focus {
     border-style: dashed;
@@ -27,6 +30,7 @@ input {
     border: 3px solid var(--colorForeground);
     border-radius: 3px;
     padding: 13px;
+    font-family: var(--font);
 }
 input:hover, input:focus {
     border-style: dashed;
