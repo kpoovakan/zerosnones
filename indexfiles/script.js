@@ -26,15 +26,19 @@ if (url.searchParams.get("b") || url.searchParams.get("e")) {
     }
 }
 
-// trigger "convert to binary" with enter key
-document.getElementById("toBinary").addEventListener("keydown", (event) => {
-    if (event.key === "Enter") toBinary();
-});
+// check what "page" is open (from url search parameters) before adding event listeners
+if (!(url.searchParams.get("b") || url.searchParams.get("e"))) {
+    // then we should be on the main page
+    // trigger "convert to binary" with enter key
+    document.getElementById("toBinary").addEventListener("keydown", (event) => {
+        if (event.key === "Enter") toBinary();
+    });
 
-// trigger "convert to English" with enter key
-document.getElementById("toEnglish").addEventListener("keydown", (event) => {
-    if (event.key === "Enter") toEnglish();
-});
+    // trigger "convert to English" with enter key
+    document.getElementById("toEnglish").addEventListener("keydown", (event) => {
+        if (event.key === "Enter") toEnglish();
+    });
+}
 
 // validation checking for converting to binary
 function toBinary() {
