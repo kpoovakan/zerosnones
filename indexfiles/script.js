@@ -73,6 +73,11 @@ function toEnglish() {
     window.location.href = url;
 }
 
+function clipboard(thisElement) {
+    const data = document.getElementById("result").dataset.binary;
+    navigator.clipboard.writeText(data);
+}
+
 function convertBinary(data) {
     // first convert everything to ascii
     const encoder = new TextEncoder();
