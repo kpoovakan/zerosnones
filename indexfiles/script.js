@@ -11,8 +11,7 @@ if (url.searchParams.get("b") || url.searchParams.get("e")) {
     if (!(b === null) && !(e === null)) {
         // this means the user manually changed the search parameters to include inputs for both b and e so we will strip all search parameters
         //whatDidYouDo();
-        url.search = "";
-        window.location.href = url;
+        newValue();
     }
     // clear the page content to make room for incoming content
     document.getElementById("content").innerHTML = "";
@@ -23,8 +22,7 @@ if (url.searchParams.get("b") || url.searchParams.get("e")) {
     } else {
         // this shouldn't ever happen
         alert("uh... what did you do??");
-        url.search = "";
-        window.location.href = url;
+        newValue();
     }
 }
 
@@ -73,9 +71,18 @@ function toEnglish() {
     window.location.href = url;
 }
 
-function clipboard(thisElement) {
+function clipboard() {
+    // copy the result to the user's clipboard
+    // thisElement is the button, not the result paragraph
     const data = document.getElementById("result").dataset.binary;
     navigator.clipboard.writeText(data);
+}
+
+function newValue() {
+    // remove all url search parameters so that the user can convert something else
+    // thisElement is the button, not the result paragraph
+    url.search = "";
+    window.location.href = url;
 }
 
 function convertBinary(data) {
@@ -98,11 +105,19 @@ function convertBinary(data) {
     result.dataset.binary = fin;
     result.innerText = `"${data}" to UTF-8 binary is: ${fin}`;
     document.getElementById("content").appendChild(result);
+    // add div to contain the buttons
+    const buttons = document.createElement("div");
+    buttons.className = "inputGroup";
     // add a button that copies result to clipboard
-    const button = document.createElement("button");
-    button.setAttribute("onclick", "clipboard(this)");
-    button.innerText = "copy to clipboard";
-    button.style.display = "block";
-    button.style.margin = "0 auto";
-    document.getElementById("content").appendChild(button);
+    const clipboard = document.createElement("button");
+    clipboard.setAttribute("onclick", "clipboard()");
+    clipboard.innerText = "copy to clipboard";
+    buttons.appendChild(clipboard);
+    // add a button that removes url search parameters to try converting something else
+    const yay = document.createElement("button");
+    yay.setAttribute("onclick", "newValue()");
+    yay.innerText = "convert something else";
+    buttons.appendChild(yay);
+    // add those buttons to the webpage
+    document.getElementById("content").appendChild(buttons);
 }
