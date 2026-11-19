@@ -99,11 +99,16 @@ function convertBinary(data) {
         var fin = fin + cur;
     }
     //console.log(fin);
+    // create a highlighted section specifically for the result
+    const highlighted = document.createElement("span");
+    highlighted.innerText = fin;
+    highlighted.className = "result";
     // write the result itself on the webpage
     const result = document.createElement("p");
     result.id = "result";
     result.dataset.binary = fin;
-    result.innerText = `"${data}" to UTF-8 binary is: ${fin}`;
+    result.innerText = `"${data}" to UTF-8 binary is: `;
+    result.appendChild(highlighted);
     document.getElementById("content").appendChild(result);
     // add div to contain the buttons
     const buttons = document.createElement("div");
@@ -138,11 +143,16 @@ function convertEnglish(data) {
         var fin = fin + cur;
     }
     //console.log(fin);
+    // create a highlighted section specifically for the result
+    const highlighted = document.createElement("span");
+    highlighted.innerText = fin;
+    highlighted.className = "result";
     // write the result itself on the webpage
     const result = document.createElement("p");
     result.id = "result";
     result.dataset.binary = fin;
-    result.innerText = `"${data}" to English is ${fin}`;
+    result.innerText = `"${data}" to English is: `;
+    result.appendChild(highlighted);
     document.getElementById("content").appendChild(result);
     // add div to contain the buttons
     const buttons = document.createElement("div");

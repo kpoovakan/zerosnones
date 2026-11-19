@@ -78,3 +78,6 @@ h1 {
     overflow: auto;
     word-break: break-all;
 }
+.result {
+    font-weight: 900;
+}
