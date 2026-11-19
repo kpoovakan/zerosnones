@@ -87,4 +87,17 @@ function convertBinary(data) {
         var fin = fin + cur;
     }
     //console.log(fin);
+    // write the result itself on the webpage
+    const result = document.createElement("p");
+    result.id = "result";
+    result.dataset.binary = fin;
+    result.innerText = `"${data}" to UTF-8 binary is: ${fin}`;
+    document.getElementById("content").appendChild(result);
+    // add a button that copies result to clipboard
+    const button = document.createElement("button");
+    button.setAttribute("onclick", "clipboard(this)");
+    button.innerText = "copy to clipboard";
+    button.style.display = "block";
+    button.style.margin = "0 auto";
+    document.getElementById("content").appendChild(button);
 }
