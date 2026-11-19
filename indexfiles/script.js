@@ -125,7 +125,7 @@ function convertBinary(data) {
 function convertEnglish(data) {
     // split the binary into chunks of 8
     const chunks = data.match(/.{1,8}/g || []);
-    console.log(chunks);
+    //console.log(chunks);
     // convert the binary to ascii, then the ascii to English
     const decoder = new TextDecoder();
     var fin = "";
@@ -133,8 +133,10 @@ function convertEnglish(data) {
         let cur = chunks[i];
         cur = parseInt(cur, 2);
         // now cur is in ascii
-        //cur = decoder.decode(new Uint8Array(cur));
+        // now we convert the ascii to English character
+        cur = String.fromCharCode(cur);
+        // add character to the finished result
         var fin = fin + cur;
     }
-    //console.log(fin);
+    console.log(fin);
 }
