@@ -66,9 +66,15 @@ h1 {
 .inputGroup {
     display: flex;
     gap: 13px;
-    margin: 13px;
+    padding: 13px;
+    box-sizing: border-box;
     width: 100%;
 }
 .inputGroup > * {
     flex: 1;
+}
+.content {
+    max-width: 100%;
+    overflow: auto;
+    word-break: break-all;
 }
