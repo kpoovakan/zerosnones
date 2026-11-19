@@ -1,5 +1,19 @@
 "use strict";
 
+const url = new URL(window.location.href);
+if (url.searchParams.get("b") || url.searchParams.get("e")) {
+    const b = url.searchParams.get("b");
+    const e = url.searchParams.get("e");
+    console.log(b);
+    console.log(e);
+    if (!(b === null) && !(e === null)) {
+        // this means the user manually changed the search parameters to include inputs for both b and e so we will strip all search parameters
+        //whatDidYouDo();
+        url.search = "";
+        window.location.href = url;
+    }
+}
+
 document.getElementById("toBinary").addEventListener("keydown", (event) => {
     if (event.key === "Enter") toBinary();
 });
@@ -15,6 +29,8 @@ function toBinary() {
         alert("please input some English to convert to binary.");
         return;
     }
+    url.searchParams.set("b", value);
+    window.location.href = url;
 }
 
 function toEnglish() {
@@ -29,4 +45,6 @@ function toEnglish() {
         alert("that doesn't look like accepted binary?");
         return;
     }
+    url.searchParams.set("e", value);
+    window.location.href = url;
 }
