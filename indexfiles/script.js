@@ -121,3 +121,20 @@ function convertBinary(data) {
     // add those buttons to the webpage
     document.getElementById("content").appendChild(buttons);
 }
+
+function convertEnglish(data) {
+    // split the binary into chunks of 8
+    const chunks = data.match(/.{1,8}/g || []);
+    console.log(chunks);
+    // convert the binary to ascii, then the ascii to English
+    const decoder = new TextDecoder();
+    var fin = "";
+    for (let i = 0; i < chunks.length; i++) {
+        let cur = chunks[i];
+        cur = parseInt(cur, 2);
+        // now cur is in ascii
+        //cur = decoder.decode(new Uint8Array(cur));
+        var fin = fin + cur;
+    }
+    //console.log(fin);
+}
