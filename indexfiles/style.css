@@ -20,6 +20,9 @@ body {
     a:hover {
         cursor: pointer;
         text-decoration: underline;
+        text-decoration-style: dashed;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3.14px;
     }
 }
 button {
