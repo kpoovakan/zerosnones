@@ -127,7 +127,6 @@ function convertEnglish(data) {
     const chunks = data.match(/.{1,8}/g || []);
     //console.log(chunks);
     // convert the binary to ascii, then the ascii to English
-    const decoder = new TextDecoder();
     var fin = "";
     for (let i = 0; i < chunks.length; i++) {
         let cur = chunks[i];
