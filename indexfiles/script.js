@@ -6,11 +6,23 @@ if (url.searchParams.get("b") || url.searchParams.get("e")) {
     // oh, so we DO have a "b" search parameter or an "e" search parameter!
     const b = url.searchParams.get("b");
     const e = url.searchParams.get("e");
-    console.log(b);
-    console.log(e);
+    //console.log(b);
+    //console.log(e);
     if (!(b === null) && !(e === null)) {
         // this means the user manually changed the search parameters to include inputs for both b and e so we will strip all search parameters
         //whatDidYouDo();
+        url.search = "";
+        window.location.href = url;
+    }
+    // clear the page content to make room for incoming content
+    document.getElementById("content").innerHTML = "";
+    if (!(b === null)) {
+        convertBinary(b);
+    } else if (!(e === null)) {
+        convertEnglish(e);
+    } else {
+        // this shouldn't ever happen
+        alert("uh... what did you do??");
         url.search = "";
         window.location.href = url;
     }
@@ -59,4 +71,20 @@ function toEnglish() {
     // valid binary, so set the "e" url search parameter with the value
     url.searchParams.set("e", value);
     window.location.href = url;
+}
+
+function convertBinary(data) {
+    // first convert everything to ascii
+    const encoder = new TextEncoder();
+    const ascii = encoder.encode(data);
+    //console.log(ascii);
+    // now convert the ascii to binary
+    var fin = "";
+    for (let i = 0; i < ascii.length; i++) {
+        let cur = ascii[i];
+        cur = cur.toString(2);
+        cur = cur.padStart(8, "0");
+        var fin = fin + cur;
+    }
+    //console.log(fin);
 }
