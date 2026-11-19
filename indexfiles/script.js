@@ -138,5 +138,26 @@ function convertEnglish(data) {
         // add character to the finished result
         var fin = fin + cur;
     }
-    console.log(fin);
+    //console.log(fin);
+    // write the result itself on the webpage
+    const result = document.createElement("p");
+    result.id = "result";
+    result.dataset.binary = fin;
+    result.innerText = `"${data}" to English is ${fin}`;
+    document.getElementById("content").appendChild(result);
+    // add div to contain the buttons
+    const buttons = document.createElement("div");
+    buttons.className = "inputGroup";
+    // add a button that copies result to clipboard
+    const clipboard = document.createElement("button");
+    clipboard.setAttribute("onclick", "clipboard()");
+    clipboard.innerText = "copy to clipboard";
+    buttons.appendChild(clipboard);
+    // add a button that removes url search parameters to try converting something else
+    const yay = document.createElement("button");
+    yay.setAttribute("onclick", "newValue()");
+    yay.innerText = "convert something else";
+    buttons.appendChild(yay);
+    // add those buttons to the webpage
+    document.getElementById("content").appendChild(buttons);
 }
