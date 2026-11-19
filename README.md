@@ -26,4 +26,4 @@ No dependencies or packages to install. Simply open the repository folder and op
 Lightweight, with no dependencies.
 
 ### Credits And Licensing
-Zerosnones is built by [kpoovakan](https://kpoovakan.github.io) and licensed under the [LICENSE]().
+Zerosnones is built by [kpoovakan](https://kpoovakan.github.io) and licensed under the [Boost Software License 1.0](https://github.com/kpoovakan/zerosnones/tree/main?tab=License-1-ov-file) as an open-source project.
